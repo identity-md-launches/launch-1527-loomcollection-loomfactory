@@ -1,0 +1,33 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Loom",
+    "symbol": "LOOM",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "LoomCollection",
+      "constructorArgs": [
+        "$owner",
+        "$owner"
+      ]
+    },
+    {
+      "contract": "LoomFactory",
+      "constructorArgs": [
+        "$contract:LoomCollection",
+        "$owner",
+        "$owner"
+      ]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "LoomCollection is the locked ERC-721 implementation used by LoomFactory's EIP-1167 clones. Its PLATFORM and RESERVE recipients are $owner. LoomFactory references LoomCollection; its PLATFORM recipient and creation pauser are $owner. Collection creation initializes each clone atomically and makes its caller the clone owner. Launch deployment requires no initialization calls."
+}
